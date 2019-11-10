@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, reverse
-from django.views.generic import TemplateView, ListView, DetailView, UpdateView
+from django.views.generic import TemplateView, ListView, DetailView, UpdateView, DeleteView
 from .models import Post
 from .forms import NewPostForm
+from datetime import datetime
 
 # Create your views here.
 class HomePageView(ListView):
@@ -18,6 +19,12 @@ class PostEditView(UpdateView):
     template_name = 'post_new.html'
     def get_success_url(self, **kwargs):
         return reverse("post_details", kwargs={'pk': self.object.pk})
+
+class PostDeleteView(DeleteView):
+    model = Post
+    template_name = 'post_confirm_delete.html'
+    def get_success_url(self):
+        return reverse('home')
 
 def post_new(request):
     if request.method == "POST":
