@@ -1,7 +1,7 @@
 {%extends 'base.html' %}
     {%block content%}
-    <a href = "{% url 'post_new' %}">Add post</a>
     {% if user.is_authenticated %}
+        <a href = "{% url 'post_new' %}">Add post</a>
         Hi {{user.username}}
         <a href = "{% url 'logout' %}">Log out</a>
     {% else %}

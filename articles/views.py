@@ -30,7 +30,8 @@ def post_new(request):
     if request.method == "POST":
         form = NewPostForm(request.POST)
         if form.is_valid():
-            post = form.save()
+            post = form.save(commit=False)
+            post.author = request.user
             post.save()
             return redirect('home')
     else:
