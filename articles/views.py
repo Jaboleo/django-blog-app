@@ -11,18 +11,18 @@ class HomePageView(ListView):
 
 class PostDetailsView(DetailView):
     model = Post
-    template_name = 'post_details.html'
+    template_name = 'posts/post_details.html'
 
 class PostEditView(UpdateView):
     model = Post
     fields = ('title', 'body')
-    template_name = 'post_new.html'
+    template_name = 'posts/post_new.html'
     def get_success_url(self, **kwargs):
         return reverse("post_details", kwargs={'pk': self.object.pk})
 
 class PostDeleteView(DeleteView):
     model = Post
-    template_name = 'post_confirm_delete.html'
+    template_name = 'posts/post_confirm_delete.html'
     def get_success_url(self):
         return reverse('home')
 
@@ -36,6 +36,6 @@ def post_new(request):
             return redirect('home')
     else:
         form = NewPostForm()
-    return render(request, 'post_new.html', {'form': form})
+    return render(request, 'posts/post_new.html', {'form': form})
     
 
