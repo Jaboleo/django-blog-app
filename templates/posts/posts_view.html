@@ -1,7 +1,8 @@
 {% for post in object_list%}
     <div>
             <h1>{{post.title}}</h1>
-            <h2>by {{post.author}}</h2>
+            <h4>by {{post.author}}</h4>
             <p>{{post.body|linebreaksbr}}</p>
     </div>
+    <a href = "{% url 'post_details' post.id %}" class="btn btn-primary" > See details </a>
 {%endfor%}    
