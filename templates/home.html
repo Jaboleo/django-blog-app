@@ -15,6 +15,7 @@
         <div class = 'col'>
             <div class = 'row'>
                 <div class = 'col'> <p> Hi {{user.username}} </p></div>
+                <div class = 'col'><a href="{% url 'password_reset' %}" class="btn btn-danger" >reset password</a></div>
                 <div class = 'col'> <a href = "{% url 'logout' %}" class="btn btn-primary" >Log out</a></div>
 
               
@@ -34,7 +35,6 @@
                 <div class = 'row'>
                         <a href = "{% url 'login' %}" class="btn btn-primary" >Sign in</a>
                         <a href = "{% url 'signup' %}" class="btn btn-primary" >Sign up</a>
-    
                   
                 </div>
             </div>
