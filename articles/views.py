@@ -7,6 +7,7 @@ from datetime import datetime
 # Create your views here.
 class HomePageView(ListView):
     model = Post
+    paginate_by = 5
     template_name = 'home.html'
 
 class PostDetailsView(DetailView):
