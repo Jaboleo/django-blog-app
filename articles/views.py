@@ -17,7 +17,7 @@ class PostDetailsView(DetailView):
 class PostEditView(UpdateView):
     model = Post
     fields = ('title', 'body')
-    template_name = 'posts/post_new.html'
+    template_name = 'posts/post_edit.html'
     def get_success_url(self, **kwargs):
         return reverse("post_details", kwargs={'pk': self.object.pk})
 
